@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    {!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT']) !!}
+    {!! Form::model($post, ['route' => ['posts.update', $post->id], 'method' => 'PUT', 'files' => 'true']) !!}
     <h1 class="editpost">Edit Post</h1>
     <hr>
     <div class="row" style="margin-top: 5px;">
@@ -27,6 +27,9 @@
             {{ Form::label('tags', 'Tag:',  ['class'=>'margin-top']) }}
             {{ Form::select('tags[]', $tags, null, ['class' => 'form-control select2-multi', 'multiple' => 'multiple']) }}
 
+            {{ Form::label('featured_image', 'Update Image:', ['class' => 'margin-top3']) }}
+            {{ Form::file('featured_image') }}
+            <br>
             {{ Form::label('body', 'Content:', ['class' => 'margin-top']) }}
             {{ Form::textarea('body', null, ['class' => 'form-control']) }}
         </div>
@@ -65,7 +68,7 @@
 
     <script type="text/javascript">
         $('.select2-multi').select2();
-        $('.select2-multi').select2().val({!! $post->tags()->allRelatedIDs() !!}).trigger('change');
+        $('.select2-multi').select2().val({!! $post -> tags() -> allRelatedIDs() !!}).trigger('change');
     </script>
 
 @endsection

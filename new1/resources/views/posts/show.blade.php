@@ -7,6 +7,7 @@
     <div class="row" style="margin-top: 18px;">
         <div class="col-md-8">
             <h1>{{ $post->title }}</h1> 
+            <img src="{{ asset('images/'. $post->image) }}" alt="This is Photo"/>
             <p class="lead">{{ $post->body}}</p>
             <hr>
             <div class="tags">
