@@ -20,7 +20,7 @@
             <h1 class="text-center">Create New Post</h1>
             <hr> 
             
-            {!! Form::open(array('route' => 'posts.store', 'data-parsley-validate' => '', 'file' => 'true')) !!}
+            {!! Form::open(array('route' => 'posts.store', 'data-parsley-validate' => '', 'files' => 'true')) !!}
                 {{ Form::label('title', 'Title:') }}
                 {{ Form::text('title', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255')) }}
 
