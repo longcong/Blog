@@ -41,7 +41,7 @@
                     @endforeach
                 </select>
 
-                {{ Form::label('featured_image', 'Upload Featured Image:', array('class'=>'margin-top3')) }}
+                {{ Form::label('featured_image', 'Upload Image:', array('class'=>'margin-top3')) }}
                 {{ Form::file('featured_image', array('class'=>'margin-top3') ) }}
                 <br>
 
