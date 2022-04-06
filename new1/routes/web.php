@@ -2,6 +2,7 @@
 
 use App\Role;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,11 @@ Route::group(['middlaware' => ['role_id']], function() {
     
     
 });
+route::middleware(['middleware'=>['role']], function(){
+    Auth::routes();
+});
 
-//Auth::routes();
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');
