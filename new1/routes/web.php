@@ -32,10 +32,8 @@ Route::group(['middlaware' => ['role_id']], function() {
     
     
 });
-route::middleware(['middleware'=>['role']], function(){
-    Auth::routes();
-});
 
+Auth::routes();
 
 
 
