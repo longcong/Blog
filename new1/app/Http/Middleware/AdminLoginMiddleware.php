@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class RoleMiddleware
+class AdminLoginMiddleware
 {
     /**
      * Handle an incoming request.
@@ -14,10 +14,13 @@ class RoleMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $role)
-    {   
+    public function handle($request, Closure $next)
+    {
         if(Auth::check()){
-            return redirect();
+            if(Auth::user()->$request->role_id() == 1 ){
+                return redirect()->route('posts.create');
+            }
+            return redirect()->route('/');
         }
 
         return redirect()->route('/');

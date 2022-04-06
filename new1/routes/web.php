@@ -1,5 +1,6 @@
 <?php
 
+use App\Role;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::group(['middlaware' => ['web']], function() {
+Route::group(['middlaware' => ['role_id']], function() {
 
     Route::get('blog/{slug}',['as' => 'blog.single', 'uses' =>'BlogController@getSingle' ]) 
     -> where('slug','[\w\d\-\_]+');
@@ -23,14 +24,14 @@ Route::group(['middlaware' => ['web']], function() {
     Route::get('/', 'PagesController@getIndex');
     Route::get('about', 'pagesController@getAbout');
     Route::get('contact', 'PagesController@getContact');
-    Route::resource('posts', 'PostController')->middleware('auth', 'role:admin');
+    Route::resource('posts', 'PostController');
 
     Route::resource('categories', 'CategoryController', ['except' => ['create']]);
     Route::resource('tags','TagController', ['except' => ['create']]);
-    //Route::get('admin','AdminController@showImportantInfo')->middleware('auth', 'role:admin');
+    
     
 });
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

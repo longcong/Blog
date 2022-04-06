@@ -68,7 +68,7 @@
 
     <script type="text/javascript">
         $('.select2-multi').select2();
-        $('.select2-multi').select2().val({!! $post -> tags() -> allRelatedIDs() !!}).trigger('change');
+        $('.select2-multi').select2().val('{{ json_encode($post->tags()->allRelatedIds()) }}').trigger('change');
     </script>
 
 @endsection
