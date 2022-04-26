@@ -13,7 +13,7 @@
                     <tr>
                         <th>#</th>
                         <th>Name</th>
-                        <!-- <th>Created_at</th> -->
+                        
                         
                     </tr>
                 </thead>
@@ -22,7 +22,7 @@
                     <tr>
                         <th>{{ $category->id }}</th>
                         <th>{{ $category->name }}</th>
-                        <!-- <th>{{ $category->created_at }}</th> -->
+                        
                         
                     </tr>
                     @endforeach
@@ -34,8 +34,8 @@
             {!! Form::open(['route' => 'categories.store', 'method' => 'POST']) !!}
                     <h2>New Category</h2>
                     {{ Form::label('name', 'Name:') }}
-                    {{ Form::text('name',null,['class' => 'form-control']) }}           
-                    {{ Form::submit ('Create New Category', ['class' => 'btn btn-primary btn-block btn-h1-spacing']) }}
+                    {{ Form::text('name',null,['class' => 'form-control'], array('style'=>'background-color: #F8F8FF;')) }}           
+                    {{ Form::submit ('Create New Category', ['class' => 'btn btn-primary btn-block']) }}
                 {!! Form::close() !!}
             </div>
         </div>

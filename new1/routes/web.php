@@ -26,7 +26,6 @@ Route::group(['middlaware' => ['role_id']], function() {
     Route::get('about', 'pagesController@getAbout');
     Route::get('contact', 'PagesController@getContact');
     Route::resource('posts', 'PostController');
-
     Route::resource('categories', 'CategoryController', ['except' => ['create']]);
     Route::resource('tags','TagController', ['except' => ['create']]);
     
